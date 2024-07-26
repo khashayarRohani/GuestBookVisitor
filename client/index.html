@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <script type="module" src="/main.js" defer></script>
+    <title>Vite App</title>
+  </head>
+  <body>
+    <section class="FormSection">
+      <h1 id="Welcome">Welcome</h1>
+      <form id="messageForm">
+        <div>
+          <lable class="selfFlex" for="username">UserName:</lable>
+          <input
+            placeholder="username"
+            name="username"
+            id="username"
+            type="text"
+            required
+          />
+        </div>
+        <div>
+          <label class="selfFlex" for="message">Type Your Message:</label>
+          <textarea
+            placeholder="Write your message"
+            name="message"
+            type="text"
+            id="textarea"
+            required
+          ></textarea>
+        </div>
+        <div>
+          <div class="emo">
+            <input type="radio" id="smile" name="emoji" value="😀" />
+            <label for="smile">😀</label>
+            <input type="radio" id="sad" name="emoji" value="😢" />
+            <label for="sad">😢</label>
+            <input type="radio" id="angry" name="emoji" value="😡" />
+            <label for="angry">😡</label>
+            <input type="radio" id="love" name="emoji" value="😍" />
+            <label for="love">😍</label>
+          </div>
+        </div>
+        <div>
+          <button
+            class="selfFlex"
+            style="display: block; text-align: center"
+            title="press to send"
+          >
+            Send
+          </button>
+        </div>
+      </form>
+    </section>
+    <section class="FilterSection">
+      <div>
+        <p>messages:5</p>
+      </div>
+      <div>
+        <button>filter</button>
+        <button>Select</button>
+      </div>
+    </section>
+    <div class="list">
+      <ul id="messages"></ul>
+    </div>
+  </body>
+</html>
