@@ -5,6 +5,8 @@ body {
   margin: 0;
   background-color: rgb(191, 232, 167);
   color: aliceblue;
+  padding: 0;
+  overflow: hidden;
 }
 .FontSize {
   font-size: 10px;
@@ -13,6 +15,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  width: 100%;
 }
 
 .FormSection div {
@@ -205,6 +208,7 @@ select option {
 }
 .aboutme {
   transform: scale(0.6);
+  width: 100%;
 }
 @media (min-width: 1024px) {
   .list ul li:hover p,
@@ -221,6 +225,7 @@ select option {
     flex-direction: column;
     gap: 15px;
     padding-bottom: 8px;
+    width: 100%;
     background-color: rgba(68, 127, 210, 0.485);
   }
 
@@ -265,6 +270,9 @@ select option {
     margin: 0;
     width: 20%;
   }
+  .list {
+    width: 100%;
+  }
   .inpSearch {
     width: 200px;
     border-radius: 10px;
@@ -280,13 +288,15 @@ select option {
     gap: 40px;
     padding-right: 10px;
     padding-left: 10px;
+    width: 100%;
     background-color: rgba(68, 194, 210, 0.485);
   }
   .aboutme {
-    transform: scale(0.7);
+    transform: scale(0.8);
     position: absolute;
-    top: 20%;
-    right: 0;
+    top: 10%;
+    left: 24%;
+    z-index: 100;
   }
   .FontSize {
     font-size: 20px;
