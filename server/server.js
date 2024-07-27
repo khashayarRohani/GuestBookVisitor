@@ -44,6 +44,22 @@ app.delete("/messages/", async (req, res) => {
 
   res.send(`id ${id} id deleted`);
 });
+
+app.get("/filtermessages", async (req, res) => {
+  const { word } = req.query;
+  console.log(word);
+  if (!word) {
+    return res
+      .status(400)
+      .json({ error: "Query parameter 'word' is required" });
+  }
+
+  const filterQuery = `SELECT * FROM messages WHERE message LIKE $1`;
+  const result = await db.query(filterQuery, [`%${word}%`]);
+  const filteredMessages = result.rows;
+  res.json(filteredMessages);
+});
+
 app.listen(PORT, (req, res) => {
   console.log(`Your APIs are Running on port ${PORT}`);
 });

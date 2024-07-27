@@ -56,6 +56,7 @@ body {
   margin-top: 15px;
   margin-left: 8px;
   margin-right: 10px;
+  gap: 40px;
 }
 .FilterSection div p {
   margin: 0;
@@ -176,4 +177,17 @@ select {
 /* Styling for the options */
 select option {
   background-color: #a2ff00;
+}
+.inpSearch {
+  width: 100px;
+  border-radius: 10px;
+  height: 35px;
+}
+.allmsgDiv {
+  display: flex;
+  justify-self: self-start;
+  width: 180px;
+  font-size: 10px;
+  height: 40px;
+  margin-left: 5px;
 }

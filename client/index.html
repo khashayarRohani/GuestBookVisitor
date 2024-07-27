@@ -11,6 +11,9 @@
   <body>
     <section class="FormSection">
       <h1 id="Welcome" style="color: black">Welcome</h1>
+      <div class="wrap allmsgDiv">
+        <button id="allmsg" class="button">All Messages</button>
+      </div>
       <form id="messageForm">
         <div>
           <lable class="selfFlex" for="username">UserName:</lable>
@@ -55,20 +58,24 @@
         </div>
       </form>
     </section>
-    <section class="FilterSection">
-      <div>
-        <p>messages:5</p>
-      </div>
-      <div class="wrap">
-        <button class="button">filter</button>
-        <select name="filter" id="filter">
-          <option value="all">All</option>
-          <option value="😀">😀</option>
-          <option value="😢">😢</option>
-          <option value="😡">😡</option>
-          <option value="😍">😍</option>
-        </select>
-      </div>
+    <section class="FilterSection wrap">
+      <input
+        name="search"
+        title="enter your disired word"
+        placeholder="enter a word"
+        type="text"
+        id="searchword"
+        class="inpSearch"
+      />
+      <button class="button" id="filterbtn">filter</button>
+
+      <select name="filter" id="filter">
+        <option value="all">All</option>
+        <option value="😀">😀</option>
+        <option value="😢">😢</option>
+        <option value="😡">😡</option>
+        <option value="😍">😍</option>
+      </select>
     </section>
     <div class="list">
       <ul id="messages"></ul>
