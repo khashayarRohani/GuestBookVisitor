@@ -10,7 +10,7 @@
   </head>
   <body>
     <section class="FormSection">
-      <h1 id="Welcome">Welcome</h1>
+      <h1 id="Welcome" style="color: black">Welcome</h1>
       <form id="messageForm">
         <div>
           <lable class="selfFlex" for="username">UserName:</lable>
@@ -44,9 +44,9 @@
             <label for="love">😍</label>
           </div>
         </div>
-        <div>
+        <div class="wrap">
           <button
-            class="selfFlex"
+            class="selfFlex button"
             style="display: block; text-align: center"
             title="press to send"
           >
@@ -59,9 +59,15 @@
       <div>
         <p>messages:5</p>
       </div>
-      <div>
-        <button>filter</button>
-        <button>Select</button>
+      <div class="wrap">
+        <button class="button">filter</button>
+        <select name="filter" id="filter">
+          <option value="all">All</option>
+          <option value="😀">😀</option>
+          <option value="😢">😢</option>
+          <option value="😡">😡</option>
+          <option value="😍">😍</option>
+        </select>
       </div>
     </section>
     <div class="list">

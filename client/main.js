@@ -28,6 +28,7 @@ function loadMessages(array) {
     listItem.appendChild(btn);
     listMesaagas.appendChild(listItem);
     glbID = i;
+    btn.classList.add("delButton");
     btn.addEventListener("click", () => deleteMessage(array[i].id));
   }
 }
