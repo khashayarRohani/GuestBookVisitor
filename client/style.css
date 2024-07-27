@@ -49,6 +49,7 @@ body {
 .FormSection .emo {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   margin: 0;
 }
 .FilterSection {
@@ -108,7 +109,6 @@ button {
 .list ul li:hover p,
 button {
   color: #a2ff00;
-  font-size: larger;
 }
 .list ul li:before {
   content: "";
@@ -204,6 +204,11 @@ select option {
   transform: scale(0.6);
 }
 @media (min-width: 1024px) {
+  .list ul li:hover p,
+  button {
+    color: #a2ff00;
+    font-size: larger;
+  }
   .forms {
     display: flex;
     flex-direction: row;
