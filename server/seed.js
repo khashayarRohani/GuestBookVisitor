@@ -13,8 +13,15 @@ db.query(`CREATE TABLE IF NOT EXISTS messages (
     );
     
     
+   
+  
     
     INSERT INTO messages(username,message) VALUES
     ('khashayar','hello dev'),
     ('Maz', 'hello fullstack dev'),
-    ('Zeus','move away');`);
+    ('Zeus','move away');
+
+    
+     ALTER TABLE messages
+    ADD COLUMN IF NOT EXISTS likes INTEGER DEFAULT 0;
+    `);

@@ -12,6 +12,7 @@ const smile = document.getElementById("smile");
 const sad = document.getElementById("sad");
 const angry = document.getElementById("angry");
 const love = document.getElementById("love");
+
 let glbID = 0;
 const text = document.getElementById("username");
 
@@ -29,18 +30,29 @@ function loadMessages(array) {
   for (let i = 0; i < array.length; i++) {
     const listItem = document.createElement("li");
     const btn = document.createElement("button");
+    const likeBtn = document.createElement("button");
+    const div = document.createElement("div");
     // console.log(array[i].id);
-
+    likeBtn.textContent = "Like";
     btn.textContent = "Delete";
     const paragraph = document.createElement("p");
     listItem.setAttribute("id", `message${i}`);
     paragraph.textContent = `${array[i].username}: ${array[i].message}`;
+    const likeSpan = document.createElement("span");
+
     listItem.appendChild(paragraph);
-    listItem.appendChild(btn);
+    listItem.appendChild(likeSpan);
+
+    listItem.appendChild(div);
+
+    div.appendChild(btn);
+    div.appendChild(likeBtn);
     listItem.classList.add("btnTextgap");
     listMesaagas.appendChild(listItem);
     glbID = i;
     btn.classList.add("delButton");
+    likeBtn.classList.add("delButton");
+    likeBtn.addEventListener("click", () => likeMessage(array[i].id, likeBtn));
     btn.addEventListener("click", () => deleteMessage(array[i].id));
   }
 }
@@ -73,7 +85,7 @@ Form.addEventListener("submit", async (event) => {
   });
 
   const data = await response.json();
-  console.log(data);
+  console.log(`post message : ${data}`);
   listMesaagas.innerHTML = "";
   textarea.value = "";
   await getUsers();
@@ -141,5 +153,23 @@ angry.addEventListener("change", () => {
 love.addEventListener("change", () => {
   if (love.checked) appendEmoji(love.value);
 });
+async function likeMessage(id, likeBtn) {
+  const response = await fetch("http://localhost:3000/likemessage", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ id: id }),
+  });
+
+  const data = await response.json();
+  console.log(`like response: ${data.likes}`);
+
+  likeBtn.textContent = data.likes;
+
+  setTimeout(() => {
+    likeBtn.textContent = "like";
+  }, 1000);
+}
 
 getUsers();
