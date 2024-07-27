@@ -5,6 +5,7 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./aboutme.css" />
     <script type="module" src="/main.js" defer></script>
     <title>Vite App</title>
   </head>
@@ -67,7 +68,9 @@
         id="searchword"
         class="inpSearch"
       />
-      <button class="button" id="filterbtn">filter</button>
+      <button class="button" id="filterbtn" style="margin-bottom: 14px">
+        filter
+      </button>
 
       <select name="filter" id="filter">
         <option value="all">All</option>
@@ -80,5 +83,25 @@
     <div class="list">
       <ul id="messages"></ul>
     </div>
+    <section class="aboutme">
+      <div class="all">
+        <div class="lefter">
+          <div class="text">Created by: Khashayar</div>
+        </div>
+        <div class="left">
+          <div class="text">Frontend Development</div>
+        </div>
+        <div class="center">
+          <div class="explainer"><span>About project</span></div>
+          <div class="text">Guest Book Visitor</div>
+        </div>
+        <div class="right">
+          <div class="text">Backend Development</div>
+        </div>
+        <div class="righter">
+          <div class="text">Rest APIs</div>
+        </div>
+      </div>
+    </section>
   </body>
 </html>

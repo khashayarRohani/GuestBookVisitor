@@ -13,6 +13,8 @@ const sad = document.getElementById("sad");
 const angry = document.getElementById("angry");
 const love = document.getElementById("love");
 let glbID = 0;
+const text = document.getElementById("username");
+
 //function to fetch data of users
 async function getUsers() {
   console.log("get user is called");
@@ -35,6 +37,7 @@ function loadMessages(array) {
     paragraph.textContent = `${array[i].username}: ${array[i].message}`;
     listItem.appendChild(paragraph);
     listItem.appendChild(btn);
+    listItem.classList.add("btnTextgap");
     listMesaagas.appendChild(listItem);
     glbID = i;
     btn.classList.add("delButton");
@@ -46,6 +49,7 @@ Form.addEventListener("submit", async (event) => {
 
   const formData = new FormData(Form);
   const formValues = Object.fromEntries(formData);
+  h1.textContent = `Welcome ${formValues.username}`;
   console.log(`form values:${formValues.username} `);
   //   const btn = document.createElement("button");
   //   btn.textContent = "Delete";
@@ -59,7 +63,6 @@ Form.addEventListener("submit", async (event) => {
   //   listItem.appendChild(btn);
   //   listMesaagas.appendChild(listItem);
   //   btn.addEventListener("click", () => deleteMessage());
-  const text = document.getElementById("username");
 
   const response = await fetch("http://localhost:3000/sendmessage", {
     method: "POST",
@@ -72,7 +75,7 @@ Form.addEventListener("submit", async (event) => {
   const data = await response.json();
   console.log(data);
   listMesaagas.innerHTML = "";
-  textarea.textContent = "";
+  textarea.value = "";
   await getUsers();
 });
 
