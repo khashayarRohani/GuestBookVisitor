@@ -40,6 +40,7 @@ function loadMessages(array) {
     const paragraph = document.createElement("p");
     listItem.setAttribute("id", `message${i}`);
     paragraph.textContent = `${array[i].username}: ${array[i].message}`;
+    paragraph.classList.add("FontSize");
     const likeSpan = document.createElement("span");
 
     listItem.appendChild(paragraph);

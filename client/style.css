@@ -6,7 +6,9 @@ body {
   background-color: rgb(191, 232, 167);
   color: aliceblue;
 }
-
+.FontSize {
+  font-size: 10px;
+}
 .FormSection {
   display: flex;
   flex-direction: column;
@@ -96,7 +98,7 @@ p {
 .list ul li p,
 button {
   position: relative;
-  padding: 8px;
+  padding: 1px;
   padding-left: 12px;
   display: inline-block;
   z-index: 1;
@@ -210,7 +212,7 @@ select option {
     display: flex;
     flex-direction: column;
     gap: 15px;
-
+    padding-bottom: 8px;
     background-color: rgba(68, 127, 210, 0.485);
   }
 
@@ -277,5 +279,8 @@ select option {
     position: absolute;
     top: 20%;
     right: 0;
+  }
+  .FontSize {
+    font-size: 20px;
   }
 }
