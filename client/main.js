@@ -19,7 +19,9 @@ const text = document.getElementById("username");
 //function to fetch data of users
 async function getUsers() {
   console.log("get user is called");
-  const request = await fetch("http://localhost:3000/users");
+  const request = await fetch(
+    "https://guestbookvisitor-server.onrender.com/users"
+  );
 
   const data = await request.json();
   console.log(data);
@@ -76,13 +78,16 @@ Form.addEventListener("submit", async (event) => {
   //   listMesaagas.appendChild(listItem);
   //   btn.addEventListener("click", () => deleteMessage());
 
-  const response = await fetch("http://localhost:3000/sendmessage", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(formValues),
-  });
+  const response = await fetch(
+    "https://guestbookvisitor-server.onrender.com/sendmessage",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formValues),
+    }
+  );
 
   const data = await response.json();
   console.log(`post message : ${data}`);
@@ -92,9 +97,12 @@ Form.addEventListener("submit", async (event) => {
 });
 
 async function deleteMessage(id) {
-  const response = await fetch("http://localhost:3000/messages/?id=" + id, {
-    method: "DELETE",
-  });
+  const response = await fetch(
+    "https://guestbookvisitor-server.onrender.com/messages/?id=" + id,
+    {
+      method: "DELETE",
+    }
+  );
   console.log(`delete : ${response}`);
   listMesaagas.innerHTML = ``;
   await getUsers();
@@ -106,7 +114,7 @@ Filter.addEventListener("change", async () => {
     getUsers();
   } else {
     const response = await fetch(
-      `http://localhost:3000/filtermessages?word=${selectedWord}`
+      `https://guestbookvisitor-server.onrender.com/filtermessages?word=${selectedWord}`
     );
 
     const messages = await response.json();
@@ -119,7 +127,7 @@ Filterbtn.addEventListener("click", async () => {
   const selectedWord = selectedword.value;
   if (selectedWord) {
     const response = await fetch(
-      `http://localhost:3000/filtermessages?word=${selectedWord}`
+      `https://guestbookvisitor-server.onrender.com/filtermessages?word=${selectedWord}`
     );
     const messages = await response.json();
     console.log(messages);
@@ -154,13 +162,16 @@ love.addEventListener("change", () => {
   if (love.checked) appendEmoji(love.value);
 });
 async function likeMessage(id, likeBtn) {
-  const response = await fetch("http://localhost:3000/likemessage", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ id: id }),
-  });
+  const response = await fetch(
+    "https://guestbookvisitor-server.onrender.com/likemessage",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ id: id }),
+    }
+  );
 
   const data = await response.json();
   console.log(`like response: ${data.likes}`);
